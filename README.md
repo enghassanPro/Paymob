@@ -25,6 +25,17 @@ Run server
 
     python manage.py runserver
 
+
+----
+
+Default user admin
+-----
+
+    email: admin@admin.com
+    password: django123
+
+
+
 About
 -----
 
