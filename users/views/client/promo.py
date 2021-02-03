@@ -52,10 +52,15 @@ class ClientAPIView(GenericAPIView):
                     return Response({"error": "Invalid passing the parameters"}, status=HTTP_400_BAD_REQUEST)
 
             # otherwise user need to retrieve all promo that specified for him
-            return Response(ListPromoUserSerializer(Promo.objects.filter(user_id=request.user.id,
-                                                                         is_active=True,
-                                                                         end_time__gte=now(),
-                                                                         start_time__lte=now()), many=True).data)
+            promos = Promo.objects.filter(user_id=request.user.id,
+                                          is_active=True,
+                                          end_time__gte=now(),
+                                          start_time__lte=now())
+            if promos.exists():
+
+                return Response(ListPromoUserSerializer(promos, many=True).data)
+
+            return Response({"error": "You haven't any Promo"}, status=HTTP_400_BAD_REQUEST)
 
         return Response({"detail": "Method Not Allowed"}, status=HTTP_405_METHOD_NOT_ALLOWED)
 

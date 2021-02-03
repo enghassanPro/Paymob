@@ -11,10 +11,13 @@ def generate_promo_code():
         This function will fire every record that will be store.
         It used to generate a promo code
     '''
-    arr = str(uuid.uuid4()).split('-')
-    shuffle(arr)
-    res = ''.join(arr[randint(0, len(arr))])
-    return res[:7] if len(res) >= 7 else res
+
+    while True:
+        arr = str(uuid.uuid4()).split('-')
+        shuffle(arr)
+        if len(arr) > 3:
+            res = ''.join(arr[randint(0, len(arr)-1)])
+            return res[:7] if len(res) >= 7 else res
 
 
 class Promo(models.Model):
