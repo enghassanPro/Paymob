@@ -20,7 +20,6 @@ class LogoutTestCase(APITestCase):
         response = self.client.get("/auth/logout")
         self.assertEqual(response.status_code, HTTP_200_OK)
 
-
     def test_send_any_method_logout(self):
 
         response = self.client.post("/auth/logout")
