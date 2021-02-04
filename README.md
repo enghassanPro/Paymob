@@ -28,6 +28,15 @@ Run server
 
 ----
 
+Run Test Cases:
+-------------
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+    python manage.py test or ./manage.py test
+    
+~~~~~~~~~~~~~~~~~~~~~~~~
+
 Default user admin
 -----
 
@@ -68,14 +77,6 @@ and `2` which means client user.
 * can get all or specific valid promo that the user admin specified for him
 * can take a promo code from list promo
 
-Run Test Cases:
--------------
-
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-    python manage.py test or ./manage.py test
-    
-~~~~~~~~~~~~~~~~~~~~~~~~
 
 Urls:
 -------------
